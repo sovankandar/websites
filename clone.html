@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Clone</title>
+    <!--bootstrap cdn link-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
+    <!--link for external use-->
+    <link rel="stylesheet" href="clone.css">
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="truckWrapper">
+      <div class="truckBody">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 198 93"
+          class="trucksvg"
+        >
+          <path
+            stroke-width="3"
+            stroke="#282828"
+            fill="#F83D3D"
+            d="M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z"
+          ></path>
+          <path
+            stroke-width="3"
+            stroke="#282828"
+            fill="#7D7C7C"
+            d="M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z"
+          ></path>
+          <path
+            stroke-width="2"
+            stroke="#282828"
+            fill="#282828"
+            d="M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z"
+          ></path>
+          <rect
+            stroke-width="2"
+            stroke="#282828"
+            fill="#FFFCAB"
+            rx="1"
+            height="7"
+            width="5"
+            y="63"
+            x="187"
+          ></rect>
+          <rect
+            stroke-width="2"
+            stroke="#282828"
+            fill="#282828"
+            rx="1"
+            height="11"
+            width="4"
+            y="81"
+            x="193"
+          ></rect>
+          <rect
+            stroke-width="3"
+            stroke="#282828"
+            fill="#DFDFDF"
+            rx="2.5"
+            height="90"
+            width="121"
+            y="1.5"
+            x="6.5"
+          ></rect>
+          <rect
+            stroke-width="2"
+            stroke="#282828"
+            fill="#DFDFDF"
+            rx="2"
+            height="4"
+            width="6"
+            y="84"
+            x="1"
+          ></rect>
+        </svg>
+      </div>
+      <div class="truckTires">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 30 30"
+          class="tiresvg"
+        >
+          <circle
+            stroke-width="3"
+            stroke="#282828"
+            fill="#282828"
+            r="13.5"
+            cy="15"
+            cx="15"
+          ></circle>
+          <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 30 30"
+          class="tiresvg"
+        >
+          <circle
+            stroke-width="3"
+            stroke="#282828"
+            fill="#282828"
+            r="13.5"
+            cy="15"
+            cx="15"
+          ></circle>
+          <circle fill="#DFDFDF" r="7" cy="15" cx="15"></circle>
+        </svg>
+      </div>
+      <div class="road"></div>
+  
+      <svg
+        xml:space="preserve"
+        viewBox="0 0 453.459 453.459"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns="http://www.w3.org/2000/svg"
+        id="Capa_1"
+        version="1.1"
+        fill="#000000"
+        class="lampPost"
+      >
+        <path
+          d="M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993
+  c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514
+  c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16
+  c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914
+  h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75
+  v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795
+  V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0z
+  M232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017
+  h78.747C231.693,100.736,232.77,106.162,232.77,111.694z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+  <div class="show" id="show">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Khana Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                  <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup(clone).html">Sign Up</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="veg.html">Veg items</a></li>
+                                <li><a class="dropdown-item" href="nonveg.html">Non Veg items</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Offer items</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid header">
+        <br><br><br> <br><br>
+       <p class="text-white logo">Khana</p>
+       <pre class="text-white line">Best Food comes from beast company 
+             find your favorite
+       </pre>
+    </div>
+    <div class="container">
+       <p class="text-body loc">Location for India you want to buy</p>
+       <marquee class="text-body note" scrollamount="10"><pre>Khana is food delivary sites.Best food for everyone.
+        Khana for foodie people who explore all type items available in India
+       </pre></marquee>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://th.bing.com/th/id/R.913becf9f884742c3bae5764e35ae12b?rik=zxv5oidL7n59fQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f2%2f9%2f7%2f494243.jpg&ehk=jbHEDfWJ%2fvfSK7S0gPqDY4mLwcyroJZp5ma9w4jrfOw%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100" alt="..." style="max-width: 100%; height: 90%;">
+          </div>
+          <div class="carousel-item">
+            <img src="https://wallpaperaccess.com/full/767054.jpg" class="d-block w-100" alt="..." style="max-width: 100%;">
+          </div>
+          <div class="carousel-item">
+            <img src="https://wallpapercave.com/wp/wp3724278.jpg" class="d-block w-100" alt="..." style="max-width: 110%;">
+          </div>
+          <div class="carousel-item">
+            <img src="https://th.bing.com/th/id/R.58fa14c6bdb750a3173a8fe568b53f25?rik=rIAfB6l3yIeXYw&riu=http%3a%2f%2fimages.all-free-download.com%2fimages%2fgraphicthumb%2ffood_picture_01_hd_pictures_167558.jpg&ehk=475qpNtTY6qrVOAYF6ZjX7v0DUpsvFCoW23rv0S7OWE%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" class="d-block w-100" alt="..." style="max-width: 100%; height: 90%;">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="container mt-5 mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="icon"><i class='bx bx-user-circle'></i> </div>
+                            <div class="ms-2 c-details">
+                                <h6 class="mb-0">Mailchimp</h6> <span>1 days ago</span>
+                            </div>
+                        </div>
+                        <div class="badge"> <span>Khana</span> </div>
+                    </div>
+                    <div class="mt-5">
+                      <img src="https://images5.alphacoders.com/433/433534.jpg" alt="..." class="img-thumbnail">
+                        <h3 class="heading">Double Cheeze Veggy Burger</h3>
+                        <div class="mt-5">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="mt-3"> <span class="text1">32 reviews <span class="text2">out of 50</span></span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="icon"> <i class='bx bx-user-circle'></i> </div>
+                            <div class="ms-2 c-details">
+                                <h6 class="mb-0">Dribbble</h6> <span>4 days ago</span>
+                            </div>
+                        </div>
+                        <div class="badge"> <span>Khana</span> </div>
+                    </div>
+                    <div class="mt-5">
+                      <img src="https://images.alphacoders.com/991/thumb-1920-991307.jpg" alt="..." class="img-thumbnail">
+                        <h3 class="heading">Chezzy Mashroom Pizza</h3>
+                        <div class="mt-5">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="mt-3"> <span class="text1">42 reviews <span class="text2">out of 70</span></span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 mb-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="icon"> <i class='bx bx-user-circle'></i> </div>
+                            <div class="ms-2 c-details">
+                                <h6 class="mb-0">Reddit</h6> <span>2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="badge"> <span>Khana</span> </div>
+                    </div>
+                    <div class="mt-5">
+                      <img src="https://wp-public-fs.s3.ap-south-1.amazonaws.com/tasks/15f5b5011a52333941ec84c5b1f19b42b0b4355a7a56eb/images/k1q6fr5q4xu4tbkl4zsj-5f61bc3e88343.jpg" alt="..." class="img-thumbnail">
+                        <h3 class="heading">Extra taste Chilli Potato</h3>
+                        <div class="mt-5">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="mt-3"> <span class="text1">52 reviews <span class="text2">out of 90</span></span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 mb-3">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card p-3 mb-2">
+                  <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                          <div class="icon"><i class='bx bx-user-circle'></i> </div>
+                          <div class="ms-2 c-details">
+                              <h6 class="mb-0">Mailchimp</h6> <span>1 days ago</span>
+                          </div>
+                      </div>
+                      <div class="badge"> <span>Khana</span> </div>
+                  </div>
+                  <div class="mt-5">
+                    <img src="https://www.kitchensanctuary.com/wp-content/uploads/2019/02/Chicken-Lo-Mein-square-FS.jpg" alt="..." class="img-thumbnail"  width="260px" >
+                      <h3 class="heading">Easy Chicken Low Mein</h3>
+                      <div class="mt-5">
+                          <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <div class="mt-3"> <span class="text1">32 reviews <span class="text2">out of 50</span></span> </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card p-3 mb-2">
+                  <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                          <div class="icon"> <i class='bx bx-user-circle'></i> </div>
+                          <div class="ms-2 c-details">
+                              <h6 class="mb-0">Dribbble</h6> <span>4 days ago</span>
+                          </div>
+                      </div>
+                      <div class="badge"> <span>Khana</span> </div>
+                  </div>
+                  <div class="mt-5">
+                    <img src="https://wallpapercave.com/wp/wp7029319.jpg" alt="..." class="img-thumbnail" >
+                      <h3 class="heading">Extra Chilli fire Burger</h3>
+                      <div class="mt-5">
+                          <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <div class="mt-3"> <span class="text1">42 reviews <span class="text2">out of 70</span></span> </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="card p-3 mb-2">
+                  <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                          <div class="icon"> <i class='bx bx-user-circle'></i> </div>
+                          <div class="ms-2 c-details">
+                              <h6 class="mb-0">Reddit</h6> <span>2 days ago</span>
+                          </div>
+                      </div>
+                      <div class="badge"> <span>Khana</span> </div>
+                  </div>
+                  <div class="mt-5">
+                    <img src="https://images.onlymyhealth.com/imported/images/2021/April/08_Apr_2021/Inside1diabetics.jpg" alt="..." class="img-thumbnail">
+                      <h3 class="heading">Level Chicken stick</h3>
+                      <div class="mt-5">
+                          <div class="progress">
+                              <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="52" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <div class="mt-3"> <span class="text1">52 reviews <span class="text2">out of 90</span></span> </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <footer class="new_footer_area bg_color">
+    <div class="new_footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+                        <p>Khana sites always open notification for get offer and.....</p>
+                        <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                            <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                            <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+                            <p class="mchimp-errmessage" style="display: none;"></p>
+                            <p class="mchimp-sucmessage" style="display: none;"></p>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Download</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Android App</a></li>
+                            <li><a href="#">ios App</a></li>
+                            <li><a href="#">Desktop</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">My tasks</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Help</h3>
+                        <ul class="list-unstyled f_list">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Term &amp; conditions</a></li>
+                            <li><a href="#">Reporting</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Support Policy</a></li>
+                            <li><a href="#">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                        <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                        <div class="f_social_icon">
+                            <a href="#" class="fab fa-facebook"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                            <a href="#" class="fab fa-pinterest"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bg">
+            <div class="footer_bg_one"></div>
+            <div class="footer_bg_two"></div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-7">
+                    <p class="mb-0 f_400">Khana official website...2024..</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<script src="clone.js"></script>
+</body>
+</html>
